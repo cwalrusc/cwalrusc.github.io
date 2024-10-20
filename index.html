@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Walrus</title>
@@ -12,9 +14,12 @@
             box-sizing: border-box;
         }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f4f4f4;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             background-color: #333;
@@ -36,10 +41,41 @@
             padding: 15px;
             font-size: 1.1rem;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
         }
         #content {
+            flex: 1;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .panel {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
             text-align: center;
+            margin-bottom: 20px;
+        }
+        .placeholder-box {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            border: 2px dashed #ccc;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
         }
     </style>
 </head>
@@ -54,27 +90,35 @@
         <a onclick="showContent('contact')">Contact</a>
     </nav>
     <section id="content">
-        <p>Welcome to the Walrus website!</p>
+        <div class="panel">
+            <div class="placeholder-box"></div>
+            <p>[Placeholder 1]</p>
+        </div>
     </section>
+    <footer>
+        <p>&copy; 2024 Trust AI Ltd. All rights reserved.</p>
+    </footer>
     <script>
         function showContent(page) {
             const content = document.getElementById('content');
+            let html = '';
             switch(page) {
                 case 'home':
-                    content.innerHTML = '<p>Welcome to the Walrus website!</p>';
+                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Placeholder 1]</p></div>';
                     break;
                 case 'about':
-                    content.innerHTML = '<p>About us: We are a company that loves walruses.</p>';
+                    html = '<div class="panel"><div class="placeholder-box"></div><p>About us: [Placeholder 2].</p></div>';
                     break;
                 case 'services':
-                    content.innerHTML = '<p>Our services include walrus watching tours and merchandise.</p>';
+                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Placeholder 3]</p></div>';
                     break;
                 case 'contact':
-                    content.innerHTML = '<p>Contact us at walrus@example.com.</p>';
+                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Placeholder 4]</p><p>Contact us at contact@walrus.cfd.</p></div>';
                     break;
                 default:
-                    content.innerHTML = '<p>Welcome to the Walrus website!</p>';
+                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Placeholder 5]</p></div>';
             }
+            content.innerHTML = html;
         }
     </script>
 </body>
