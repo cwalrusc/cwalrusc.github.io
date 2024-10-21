@@ -9,46 +9,51 @@
     <title>Walrus</title>
     <style>
         * {
-            margin: 0;
+            margin: 0; 
             padding: 0;
             box-sizing: border-box;
         }
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #939393;
+            color: #626161;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
         header {
-            background-color: #333;
-            padding: 20px;
+            background-color: #939393;
+            padding: 0px;
             text-align: center;
+            position: relative;
         }
-        header h1 {
-            color: #fff;
-            font-size: 2.5rem;
-        }
-        nav {
-            background-color: #444;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 15px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
+        .title-box {
             background-color: #555;
+            color: #fff;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+            font-style: italic;
+            white-space: nowrap;
+            overflow: hidden;
+            font-family: "Times New Roman", serif;
+            margin-top: 20px;
+        }
+        .title-box h1 {
+            display: inline-block;
+            animation: scroll s linear infinite;
+        }
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
         #content {
             flex: 1;
-            padding: 20px;
+            padding: 0px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -76,47 +81,61 @@
             color: #fff;
             text-align: center;
             padding: 10px;
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            margin-top: 50px;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            padding: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        footer a:hover {
+            background-color: #555;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Walrus</h1>
+        <div class="title-box">
+            <h1>WalrusWalrusWalrusWalrusWalrusWalrusWalrusWalrusWalrusWalrusWalrusWalrusWalrusWalrusWalrus Walrus Walrus Walrus Walrus Walrus Walrus Walrus</h1>
+        </div>
     </header>
-    <nav>
+    <section id="content">
+        <div class="panel">
+            <div class="placeholder-box"></div>
+            <p>[Text Placeholder 1]</div></section>p>
+        </div>
+    </section>
+    <footer>
         <a onclick="showContent('home')">Home</a>
         <a onclick="showContent('about')">About</a>
         <a onclick="showContent('services')">Services</a>
         <a onclick="showContent('contact')">Contact</a>
-    </nav>
-    <section id="content">
-        <div class="panel">
-            <div class="placeholder-box"></div>
-            <p>[Placeholder 1]</p>
-        </div>
-    </section>
-    <footer>
         <p>&copy; 2024 Trust AI Ltd. All rights reserved.</p>
     </footer>
     <script>
         function showContent(page) {
-            const content = document.getElementById('content');
-            let html = '';
-            switch(page) {
+            var content = document.getElementById('content');
+            var html = '';
+            switch (page) {
                 case 'home':
-                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Placeholder 1]</p></div>';
+                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Text Placeholder 1]</p></div>';
                     break;
                 case 'about':
-                    html = '<div class="panel"><div class="placeholder-box"></div><p>About us: [Placeholder 2].</p></div>';
+                    html = '<div class="panel"><div class="placeholder-box"></div><p>About us: [Text Placeholder 2].</p></div>';
                     break;
                 case 'services':
-                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Placeholder 3]</p></div>';
+                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Text Placeholder 3]</p></div>';
                     break;
                 case 'contact':
-                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Placeholder 4]</p><p>Contact us at contact@walrus.cfd.</p></div>';
+                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Text Placeholder 4]</p><p>Contact us at contact@walrus.cfd.</p></div>';
                     break;
                 default:
-                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Placeholder 5]</p></div>';
+                    html = '<div class="panel"><div class="placeholder-box"></div><p>[Text Placeholder 5]</p></div>';
             }
             content.innerHTML = html;
         }
